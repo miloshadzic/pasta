@@ -55,6 +55,7 @@ GEM
     fastercsv (1.5.4)
     haml (3.1.1)
     json_pure (1.4.6)
+    pg (0.10.1)
     posix-spawn (0.3.6)
     rack (1.3.0)
     sinatra (1.2.6)
@@ -73,4 +74,5 @@ DEPENDENCIES
   dm-migrations
   dm-sqlite-adapter
   haml
+  pg
   sinatra
