@@ -1,0 +1,15 @@
+!!! 5
+%html
+  %head
+    %title= @name
+    %link(rel="stylesheet" href="/css/style.css")
+    %link(rel="stylesheet" href="/css/syntax.css")    
+    %link(href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css')
+    %link(href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css')
+  %body
+    #main
+      %h1{:class => "paste"} Pasta
+      #title= @paste.title
+      #author= @paste.author
+      :preserve
+        #{@paste.body}

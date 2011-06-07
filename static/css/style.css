@@ -1,0 +1,67 @@
+html {font-family:Ubuntu, sans-serif; font-size:16px; line-height:24px;}
+
+#author {font-size:1em; padding:0 1em;}
+#title {font-size:1em; font-weight:bold; padding: 1em 1em 0 1em;}
+
+pre {
+  font-family:Inconsolata, monospace;
+  padding:1em;
+  margin:0 auto;
+}
+
+h1 {
+  color:#AD234B;
+  text-align:center;
+  font-family:Lobster;
+  font-size:4em;
+  font-weight: normal;
+  text-shadow:0.02em 0.02em 0.1em #eee;
+}
+
+h1.paste {
+  font-size:2em;
+  float:right;
+  padding:0 1em;
+}
+
+h2 {
+  font-size:1em;
+}
+
+ul {
+  list-style:none;
+  margin:0;padding:0;
+}
+
+a.name {
+  font-weight:bold;
+  color:#AD234B;
+  text-decoration:none;
+  border-bottom:white 2px dotted;
+  -moz-transition:border 0.3s ease-in;
+}
+a.name:hover {
+  border-bottom:2px dotted #AD234B;
+}
+.pastestub {
+  margin-bottom:0.5em;
+}
+a.name
+.title {}
+
+#main {
+margin:0 auto;
+max-width:960px;
+-webkit-box-shadow:0 0 1em #eee;
+-moz-box-shadow:0 0 1em #eee;
+}
+
+form {
+text-align:center;
+}
+textarea{
+font-family:Inconsolata, monospace;
+}
+
+input.text,textarea{margin:0.5em; border:1px #eee solid;min-height:1.5em;}
+.native {margin:0.5em; min-height:1.5em;}
