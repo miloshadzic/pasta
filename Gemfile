@@ -1,3 +1,6 @@
 source :rubygems
-gem 'sinatra'
-gem 'albino'
+'sinatra'
+'haml'
+'data_mapper'
+'dm-migrations'
+'albino'
