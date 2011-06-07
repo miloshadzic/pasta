@@ -6,14 +6,9 @@ require 'data_mapper'
 require 'dm-migrations'
 require 'albino'
 
-configure do
-    set :bind, '0.0.0.0'
-    set :port, 61000
-end
-
 # Set path to sqlite3 database file
 set :public, File.dirname(__FILE__) + '/static'
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/pasta.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://pasta.db')
 
 # Model
 class Paste
