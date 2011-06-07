@@ -5,6 +5,7 @@ require 'haml'
 require 'data_mapper'
 require 'dm-migrations'
 require 'albino'
+require 'net/http'
 
 # Set path to sqlite3 database file
 set :public, File.dirname(__FILE__) + '/static'
@@ -36,8 +37,11 @@ get '/:id' do |id|
 end
 
 post '/' do
-
-  body = Albino.colorize(params[:body], params[:language])
+  request = Net::HTTP.post_form(URI.parse('http://pygments.appspot.com/'),
+                                {'lang'=>params[:language], 
+                                 'code'=>params[:body]}
+                               )
+  body = request.body
 
   if params[:title].empty?
     title = "Unknown"
