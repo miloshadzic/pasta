@@ -39,6 +39,7 @@ a.name {
   text-decoration:none;
   border-bottom:white 2px dotted;
   -moz-transition:border 0.3s ease-in;
+  -webkit-transition:border 0.3s ease-in;
 }
 a.name:hover {
   border-bottom:2px dotted #AD234B;
