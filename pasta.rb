@@ -4,7 +4,6 @@ require 'sinatra'
 require 'haml'
 require 'data_mapper'
 require 'dm-migrations'
-require 'albino'
 require 'net/http'
 
 # Set path to sqlite3 database file

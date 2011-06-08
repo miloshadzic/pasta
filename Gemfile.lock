@@ -2,8 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.6)
-    albino (1.3.3)
-      posix-spawn (>= 0.3.6)
     data_mapper (1.0.0)
       dm-aggregates (= 1.0.0)
       dm-constraints (= 1.0.0)
@@ -61,7 +59,6 @@ GEM
     haml (3.1.1)
     json_pure (1.4.6)
     pg (0.10.1)
-    posix-spawn (0.3.6)
     rack (1.3.0)
     sinatra (1.2.6)
       rack (~> 1.1)
@@ -74,7 +71,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  albino
   data_mapper (= 1.0)
   dm-migrations
   dm-postgres-adapter
