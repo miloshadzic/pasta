@@ -11,8 +11,8 @@
     #mainPasta
       %h1 Pasta
       %form{:method => "post"}
-        %input{:name => "title", :class => "text", :placeholder => "Ime paste"}
-        %input{:name => "author", :class => "text", :placeholder => "Ime autora"}
+        %input{:name => "title", :class => "text", :placeholder => "Paste title"}
+        %input{:name => "author", :class => "text", :placeholder => "Author"}
         %select{:name => "language", :class => "native"}
           %option text
           %option Cucumber        
@@ -302,10 +302,10 @@
           %option yaml
 
         %br    
-        %textarea{:name => "body", :class => "text", :placeholder => "Tekst ide ovde....", :cols => "80", :rows => "20", :id => "code"}(required)
+        %textarea{:name => "body", :class => "text", :placeholder => "Text goes here...", :cols => "80", :rows => "20", :id => "code"}(required)
         %br
         %input{:type => "submit", :class => "native",  :value => "Pošalji"}
-        %h2 Poslednje:
+        %h2 Latest:
         - @pastes.each do |p|
           %div.pastestub
             %a(href="/#{p.id}" class="name")= "#{p.title}"
