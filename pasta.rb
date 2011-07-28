@@ -41,18 +41,10 @@ post '/' do
                                  'code'=>params[:body]}
                                )
   body = request.body
+  title  = params[:title].empty? ? 'Untitled' : params[:title]
+  author = params[:author].empty? ? 'Untitled' : params[:author]
 
-  if params[:title].empty?
-    title = "Unknown"
-  else
-    title = params[:title] 
-  end
 
-  if params[:author].empty?
-    author = "Unknown"
-  else
-    author = params[:author]
-  end
 
   new_paste = Paste.create(
                            :title => title,
