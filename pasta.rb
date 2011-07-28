@@ -13,11 +13,12 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://pasta.db')
 # Model
 class Paste
   include DataMapper::Resource
-  
+
   property :id, Serial
   property :title, String
   property :body, Text
   property :author, String
+  property :language, String
   property :created_at, DateTime
 end
 
@@ -37,12 +38,13 @@ end
 
 post '/' do
   request = Net::HTTP.post_form(URI.parse('http://pygments.appspot.com/'),
-                                {'lang'=>params[:language], 
+                                {'lang'=>params[:language],
                                  'code'=>params[:body]}
                                )
   body = request.body
   title  = params[:title].empty? ? 'Untitled' : params[:title]
   author = params[:author].empty? ? 'Untitled' : params[:author]
+  language = params[:language]
 
 
 
@@ -50,6 +52,7 @@ post '/' do
                            :title => title,
                            :author => author,
                            :body => body,
+                           :language => language,
                            :created_at => Time.now
                            )
   redirect "/#{new_paste[:id]}"
