@@ -1,4 +1,3 @@
-# Pasta - a pastebin like application
 require 'rubygems'
 require 'sinatra'
 require 'haml'
@@ -10,15 +9,14 @@ require 'net/http'
 set :public, File.dirname(__FILE__) + '/static'
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://pasta.db')
 
-# Model
 class Paste
   include DataMapper::Resource
 
-  property :id, Serial
-  property :title, String
-  property :body, Text
-  property :author, String
-  property :language, String
+  property :id,         Serial
+  property :title,      String
+  property :body,       Text
+  property :author,     String
+  property :language,   String
   property :created_at, DateTime
 end
 
@@ -41,21 +39,17 @@ post '/' do
                                 {'lang'=>params[:language],
                                  'code'=>params[:body]}
                                )
-  body = request.body
-  title  = params[:title].empty? ? 'Untitled' : params[:title]
-  author = params[:author].empty? ? 'Untitled' : params[:author]
+
+  title    = params[:title].empty?  ? 'Untitled' : params[:title]
+  author   = params[:author].empty? ? 'Untitled' : params[:author]
   language = params[:language]
 
-
-
   new_paste = Paste.create(
-                           :title => title,
-                           :author => author,
-                           :body => body,
-                           :language => language,
+                           :title      => title,
+                           :author     => author,
+                           :body       => request.body,
+                           :language   => language,
                            :created_at => Time.now
                            )
   redirect "/#{new_paste[:id]}"
 end
-
-
