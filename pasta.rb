@@ -41,7 +41,7 @@ post '/' do
   else
     request = Net::HTTP.post_form(URI.parse('http://pygments.appspot.com/'),
                                   {'lang' => params[:language],
-                                   'code' => params[:body]}                           )
+                                   'code' => params[:body]})
     body = request.body
   end
 
