@@ -59,13 +59,14 @@ GEM
     haml (3.1.1)
     json_pure (1.4.6)
     pg (0.10.1)
-    rack (1.3.3)
-    rack-protection (1.1.1)
+    rack (1.3.5)
+    rack-protection (1.1.4)
       rack
-    sinatra (1.3.0)
-      rack (~> 1.3)
-      rack-protection (~> 1.1)
-      tilt (~> 1.3)
+    redcarpet (1.17.2)
+    sinatra (1.3.1)
+      rack (>= 1.3.4, ~> 1.3)
+      rack-protection (>= 1.1.2, ~> 1.1)
+      tilt (>= 1.3.3, ~> 1.3)
     stringex (1.1.0)
     tilt (1.3.3)
     uuidtools (2.1.2)
@@ -80,4 +81,5 @@ DEPENDENCIES
   dm-sqlite-adapter
   haml
   pg
-  sinatra (= 1.3.0)
+  redcarpet
+  sinatra (= 1.3.1)
