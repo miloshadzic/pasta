@@ -7,3 +7,5 @@ gem 'dm-sqlite-adapter'
 gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'redcarpet'
+
+gem 'shotgun'
