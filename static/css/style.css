@@ -1,4 +1,4 @@
-html {font-family:Ubuntu, sans-serif; font-size:16px; line-height:24px;}
+html {font-family: Corbel, Ubuntu, sans-serif; font-size:16px; line-height:24px;}
 
 #author {font-size:1em; padding:0 1em;}
 #title {font-size:1em; font-weight:bold; padding: 1em 1em 0 1em;}
@@ -55,6 +55,10 @@ margin:0 auto;
 max-width:960px;
 -webkit-box-shadow:0 0 1em #eee;
 -moz-box-shadow:0 0 1em #eee;
+}
+
+#body {
+  padding: 1em;
 }
 
 form {

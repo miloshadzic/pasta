@@ -4,6 +4,7 @@ require 'haml'
 require 'data_mapper'
 require 'dm-migrations'
 require 'net/http'
+require 'redcarpet'
 
 # Set path to sqlite3 database file
 set :public, File.dirname(__FILE__) + '/static'
@@ -35,21 +36,24 @@ get '/:id' do |id|
 end
 
 post '/' do
-  request = Net::HTTP.post_form(URI.parse('http://pygments.appspot.com/'),
-                                {'lang'=>params[:language],
-                                 'code'=>params[:body]}
-                               )
+  if params[:language] == 'markdown'
+    body = Redcarpet.new(params[:body]).to_html
+  else
+    request = Net::HTTP.post_form(URI.parse('http://pygments.appspot.com/'),
+                                  {'lang' => params[:language],
+                                   'code' => params[:body]}                           )
+    body = request.body
+  end
 
   title    = params[:title].empty?  ? 'Untitled' : params[:title]
   author   = params[:author].empty? ? 'Untitled' : params[:author]
   language = params[:language]
 
-  new_paste = Paste.create(
-                           :title      => title,
+  new_paste = Paste.create(:title      => title,
                            :author     => author,
-                           :body       => request.body,
+                           :body       => body,
                            :language   => language,
-                           :created_at => Time.now
-                           )
+                           :created_at => Time.now)
+
   redirect "/#{new_paste[:id]}"
 end

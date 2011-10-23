@@ -10,7 +10,8 @@
   %body
     #main
       %h1{:class => "paste"} Pasta
-      #title= @paste.title
+      #title=  @paste.title
       #author= @paste.author
-      :preserve
-        #{@paste.body}
+      #body
+        :preserve
+          #{@paste.body}
